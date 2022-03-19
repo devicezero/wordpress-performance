@@ -37,7 +37,7 @@ hooks:
         done
 
         #temporary install of WP Importer
-        wget -c https://downloads.wordpress.org/plugin/wordpress-importer.0.7.zip -O - | tar -xz -C web/wp-content/plugins
+        wget -qO- https://downloads.wordpress.org/plugin/wordpress-importer.0.7.zip | tar xvz - -C foo/bar web/wp-content/plugins
     deploy: |
         # update the db if there were changes introduced in the last commit
         wp core update-db
