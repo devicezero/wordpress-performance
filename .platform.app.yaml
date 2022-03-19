@@ -37,12 +37,13 @@ hooks:
         done
 
         #temporary install of WP Importer
-        wp plugin install wordpress-importer --activate
+        wget -c https://downloads.wordpress.org/plugin/wordpress-importer.0.7.zip -O - | tar -xz -C web/wp-content/plugins
     deploy: |
         # update the db if there were changes introduced in the last commit
         wp core update-db
         # Flush the object cache in case relevant changes were introduced in the last commit
         wp cache flush
+        wp plugin activate wordpress-importer
     post_deploy:
         #last run all the cron jobs that might have been schedules to run during the rebuild
         wp cron event run --due-now
