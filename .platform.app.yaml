@@ -80,11 +80,11 @@ web:
                 ^/readme\.html$:
                     allow: false
         "/wp-content/cache":
-            root: "wp-content/cache"
+            root: "web/wp-content/cache"
             scripts: false
             allow: false
         "/wp-content/uploads":
-            root: "wp-content/uploads"
+            root: "web/wp-content/uploads"
             scripts: false
             allow: false
             rules:
